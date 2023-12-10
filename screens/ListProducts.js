@@ -18,13 +18,13 @@ export default function ListProducts(props) {
             const querySnapshot = await getDocs(collection(db, 'productos'))
             const docs = []
             querySnapshot.forEach((doc)=>{
-                const {nombre, rut, direccion,numero} = doc.data()
+                const {nombre, rut} = doc.data()
                 docs.push({
                     id:doc.id,
                     nombre,
                     rut,
-                    direccion,
-                    numero,
+                    //direccion,
+                    //numero,
                 })
             })
             setLista(docs);
@@ -51,30 +51,10 @@ export default function ListProducts(props) {
             <TouchableOpacity key={list.id} style={styles.BotonLista} onPress={()=>props.navigation.navigate('Show',{productoId:list.id})}>
                 <Text style={styles.TextoNombre}>Rut: {list.rut}</Text>
                 <Text style={styles.TextoNombre}>Nombre: {list.nombre}</Text>
-                <Text style={styles.TextoNombre}>Direccion: {list.direccion}</Text>
-                <Text style={styles.TextoNombre}>Número: {list.numero}</Text>
+                
             </TouchableOpacity>
           ))
         }
-      </View>
-      <View>
-      <TouchableOpacity style={styles.BotonEmpresa}>
-        <Text style={styles.TextoBoton}>Crear nueva Empresa(mock up)</Text>
-      </TouchableOpacity>
-        <Text style={styles.TextoTitulo}>Lista de Empresas (mock up)</Text>
-        <TouchableOpacity style={styles.BotonLista}>
-                <Text style={styles.TextoNombre}>Rut: 76.528.451-5</Text>
-                <Text style={styles.TextoNombre}>Nombre: Arreglatodo S.A </Text>
-                <Text style={styles.TextoNombre}>Dirección: Victoria 975, Santiago Centro </Text>
-                <Text style={styles.TextoNombre}>Especialidad: Remodelaciones menores</Text>
-        </TouchableOpacity>        
-        <TouchableOpacity style={styles.BotonLista}>
-                <Text style={styles.TextoNombre}>Rut: 77.124.900-0</Text>
-                <Text style={styles.TextoNombre}>Nombre: Constructora Nahmias Ltda. </Text>
-                <Text style={styles.TextoNombre}>Dirección: Alfredo Barros Errázuriz 1953 Of. 1004, Providencia Santiago </Text>
-                <Text style={styles.TextoNombre}>Especialidad: Constructora Habitacional</Text>
-        </TouchableOpacity>
-            
       </View>
     </ScrollView>
   );
