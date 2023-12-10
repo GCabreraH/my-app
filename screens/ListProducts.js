@@ -62,13 +62,13 @@ export default function ListProducts(props) {
         <Text style={styles.TextoBoton}>Crear nueva Empresa(mock up)</Text>
       </TouchableOpacity>
         <Text style={styles.TextoTitulo}>Lista de Empresas (mock up)</Text>
-        <TouchableOpacity style={styles.BotonLista} onPress=''>
+        <TouchableOpacity style={styles.BotonLista}>
                 <Text style={styles.TextoNombre}>Rut: 76.528.451-5</Text>
                 <Text style={styles.TextoNombre}>Nombre: Arreglatodo S.A </Text>
                 <Text style={styles.TextoNombre}>Dirección: Victoria 975, Santiago Centro </Text>
                 <Text style={styles.TextoNombre}>Especialidad: Remodelaciones menores</Text>
         </TouchableOpacity>        
-        <TouchableOpacity style={styles.BotonLista} onPress=''>
+        <TouchableOpacity style={styles.BotonLista}>
                 <Text style={styles.TextoNombre}>Rut: 77.124.900-0</Text>
                 <Text style={styles.TextoNombre}>Nombre: Constructora Nahmias Ltda. </Text>
                 <Text style={styles.TextoNombre}>Dirección: Alfredo Barros Errázuriz 1953 Of. 1004, Providencia Santiago </Text>
