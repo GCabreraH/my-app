@@ -12,11 +12,11 @@ export default function CreateProduct(props) {
     nombre:'',
     apellido_materno:'',
     apellido_paterno:'',
+    comuna:'',
     direccion:'',
     numero:'',
-    comuna:'',
     region:'',
-    telefono:''
+    telefono:'',
   }
   const [state, setState]= useState(initialState)
     
@@ -26,13 +26,13 @@ export default function CreateProduct(props) {
 
   const saveProduct =async()=>{
     try{
-      await addDoc(collection(db, 'personas'),{
+      await addDoc(collection(db, 'productos'),{
         ...state
       })
 
       Alert.alert('Alerta', 'guardado con exito')
-      console.log(state)
-      props.navigation.navigate('List')
+      //console.log(state)
+       props.navigation.navigate('List')
     }
     catch{
       console.error(error)
@@ -42,42 +42,43 @@ export default function CreateProduct(props) {
 
   return (
    <ScrollView style={styles.container}>
-    <Text style={styles.titulo}>Create Product</Text>
+    <Text style={styles.titulo}>Crear Persona</Text>
 
     <View style={styles.inputgroup}>
       <TextInput placeholder='Rut' value={state.rut} onChangeText={(value)=>handleChangeText(value, 'rut')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Nombres' value={state.nombre} onChangeText={(value)=>handleChangeText(value, 'nombre')}/>
+      <TextInput placeholder='Nombre' value={state.nombre} onChangeText={(value)=>handleChangeText(value, 'nombre')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Apellido Paterno' value={state.apellido_paterno} onChangeText={(value)=>handleChangeText(value, 'apellido_paterno')}/>
+      <TextInput placeholder='Apellido paterno' value={state.apellido_paterno} onChangeText={(value)=>handleChangeText(value, 'apellido_paterno')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Apellido Materno' value={state.apellido_materno} onChangeText={(value)=>handleChangeText(value, 'apellido_materno')}/>
+      <TextInput placeholder='Apellido materno' value={state.apellido_materno} onChangeText={(value)=>handleChangeText(value, 'apellido_materno')}/>
     </View>
-    
+
     <View style={styles.inputgroup}> 
-      <TextInput placeholder='Dirección' value={state.direccion} onChangeText={(value)=>handleChangeText(value, 'direccion')}/>
+      <TextInput placeholder='Direccion' value={state.direccion} onChangeText={(value)=>handleChangeText(value, 'direccion')}/>
+    </View>
+
+    <View style={styles.inputgroup}> 
+      <TextInput placeholder='Numero' value={state.numero} onChangeText={(value)=>handleChangeText(value, 'numero')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Número de Casa/Depto' value={state.numero} onChangeText={(value)=>handleChangeText(value, 'numero')}/>
-    </View>
-    
-    <View style={styles.inputgroup}>
-      <TextInput placeholder='Comuna' value={state.comuna} onChangeText={(value)=>handleChangeText(value, 'comuna')}/>
+      <TextInput 
+      placeholder='Comuna' value={state.comuna} onChangeText={(value)=>handleChangeText(value, 'comuna')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Región' value={state.region} onChangeText={(value)=>handleChangeText(value, 'region')}/>
+      <TextInput placeholder='Region' value={state.region} onChangeText={(value)=>handleChangeText(value, 'region')}/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Teléfono' value={state.telefono} onChangeText={(value)=>handleChangeText(value, 'telefono')}/>
+      <TextInput placeholder='Telefono' value={state.telefono} onChangeText={(value)=>handleChangeText(value, 'telefono')}/>
     </View>
 
     <View>

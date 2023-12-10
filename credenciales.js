@@ -5,13 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDb9cZv9JE4gFutW1ReWCNFuz2rnv0FjEM",
-  authDomain: "crud-fire-react-b604e.firebaseapp.com",
-  databaseURL: "https://crud-fire-react-b604e-default-rtdb.firebaseio.com",
-  projectId: "crud-fire-react-b604e",
-  storageBucket: "crud-fire-react-b604e.appspot.com",
-  messagingSenderId: "247212531794",
-  appId: "1:247212531794:web:c36dbc620937ec05d97f8b"
+  apiKey: "AIzaSyBWGYPhziNAQy9Ijq8lDRMWoBIzwwBUsEc",
+  authDomain: "webappreact-b73c1.firebaseapp.com",
+  projectId: "webappreact-b73c1",
+  storageBucket: "webappreact-b73c1.appspot.com",
+  messagingSenderId: "314374084857",
+  appId: "1:314374084857:web:9182c13b273e2d8fddaa28"
 };
 
 // Initialize Firebase

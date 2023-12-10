@@ -11,26 +11,20 @@ export default function ListProducts(props) {
   
   const [lista, setLista] = useState([])
 
-  // logica para llamara la lista de documentos de la coleccion personas
+  // logica para llamara la lista de documentos de la coleccion proteinas
   useEffect(() => {
     const getLista = async()=>{
         try {
-            const querySnapshot = await getDocs(collection(db, 'personas'))
+            const querySnapshot = await getDocs(collection(db, 'productos'))
             const docs = []
             querySnapshot.forEach((doc)=>{
-                const {rut,nombre, apellido_paterno, apellido_materno,direccion,numero,comuna,region,telefono} = doc.data()
+                const {nombre, rut, direccion,numero} = doc.data()
                 docs.push({
                     id:doc.id,
-                    rut,
                     nombre,
-                    apellido_materno,
-                    apellido_paterno,
+                    rut,
                     direccion,
                     numero,
-                    comuna,
-                    region,
-                    telefono,
-
                 })
             })
             setLista(docs);
@@ -44,7 +38,7 @@ export default function ListProducts(props) {
   return (
     <ScrollView>
       <TouchableOpacity style={styles.Boton} onPress={()=>props.navigation.navigate('Create')}>
-        <Text style={styles.TextoBoton}>Crear nueva persona</Text>
+        <Text style={styles.TextoBoton}>Agregar Persona</Text>
       </TouchableOpacity>
 
       <View>
@@ -56,16 +50,15 @@ export default function ListProducts(props) {
           lista.map((list)=>(
             <TouchableOpacity key={list.id} style={styles.BotonLista} onPress={()=>props.navigation.navigate('Show',{productoId:list.id})}>
                 <Text style={styles.TextoNombre}>Rut: {list.rut}</Text>
-                <Text style={styles.TextoNombre}>Nombres: {list.nombre}</Text>
-                <Text style={styles.TextoNombre}>Apellido Paterno: {list.apellido_paterno}</Text>
-                <Text style={styles.TextoNombre}>Apellido MaternoLIST: {list.apellido_materno}</Text>
-
+                <Text style={styles.TextoNombre}>Nombre: {list.nombre}</Text>
+                <Text style={styles.TextoNombre}>Direccion: {list.direccion}</Text>
+                <Text style={styles.TextoNombre}>Número: {list.numero}</Text>
             </TouchableOpacity>
           ))
         }
       </View>
       <View>
-      <TouchableOpacity style={styles.BotonEmpresa} onPress="">
+      <TouchableOpacity style={styles.BotonEmpresa}>
         <Text style={styles.TextoBoton}>Crear nueva Empresa(mock up)</Text>
       </TouchableOpacity>
         <Text style={styles.TextoTitulo}>Lista de Empresas (mock up)</Text>
@@ -89,18 +82,16 @@ export default function ListProducts(props) {
 
   const styles = StyleSheet.create({
     Boton:{
-      backgroundColor:'cyan',
+      backgroundColor:'#ADD8E6',
        height:35,
-       borderColor:'black',
-      borderWidth:1    
-       
+       borderColor:'#ADD8E6',
+      borderWidth:1     
     },
     BotonEmpresa:{
-      backgroundColor:'#d29bfd',
+      backgroundColor:'cyan',
        height:35,
-       borderColor:'black',
-      borderWidth:1    
-       
+       borderColor:'#ADD8E6',
+      borderWidth:1     
     },
     TextoBoton:{
       fontSize:18,

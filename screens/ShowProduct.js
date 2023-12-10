@@ -8,11 +8,11 @@ const db = getFirestore(appFirebase)
 
 export default function ShowProduct(props) {
 
-  const [persona, setProduct] = useState({})
+  const [product, setProduct] = useState({})
 
   const getOneProduct = async(id)=>{
     try{
-      const docRef = doc(db, 'personas', id)
+      const docRef = doc(db, 'productos', id)
       const docSnap = await getDoc(docRef)
       setProduct(docSnap.data())
     }
@@ -26,24 +26,28 @@ export default function ShowProduct(props) {
   },[])
 
   const deleteProduct = async(id)=>{ 
-    await deleteDoc(doc(db,'personas', id))
-    Alert.alert('exito', 'producto eliminado con exito')
+    await deleteDoc(doc(db,'productos', id))
+    Alert.alert('exito', 'Persona eliminada con exito')
     props.navigation.navigate('List')
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo} >Detalle del producto</Text>
-      <Text style={styles.sub}>Rut: {persona.rut}</Text>
-      <Text style={styles.sub}>Nombre: {persona.nombre}</Text>
-      <Text style={styles.sub}>Apellido Paterno: {persona.apellido_paterno}</Text>
-      <Text style={styles.sub}>Apellido Materno: {persona.apellido_materno}</Text>
+      <Text style={styles.titulo} >Detalle de Personas</Text>
+      
+      <Text style={styles.sub}>Nombre: {product.nombre}</Text>
+      <Text style={styles.sub}>Apellido paterno: {product.apellido_paterno}</Text>
+      <Text style={styles.sub}>Apellido materno: {product.apellido_materno}</Text>
+      <Text style={styles.sub}>Rut: {product.rut}</Text>
+      <Text style={styles.sub}>Direccion: {product.direccion}</Text>
+      <Text style={styles.sub}>Numero: {product.numero}</Text>
+      <Text style={styles.sub}>Comuna: {product.comuna}</Text>
+      <Text style={styles.sub}>Region: {product.region}</Text>
+      <Text style={styles.sub}>Telefono: {product.telefono}</Text>
 
       <TouchableOpacity style={styles.BotonLista} onPress={()=>deleteProduct(props.route.params.productoId)}>
-         <Text style={styles.TextoNombre}>Eliminar Persona</Text>
+         <Text style={styles.TextoNombre}>Eliminar</Text>
       </TouchableOpacity>
-
-      <StatusBar style="auto" />
     </View>
   );
 }
