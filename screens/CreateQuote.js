@@ -3,38 +3,35 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 
 
-export default function CreateCompany(props) {
+export default function CreateQuote(props) {
   
   return (
    <ScrollView style={styles.container}>
-    <Text style={styles.titulo}>Crear Empresa</Text>
+    <Text style={styles.titulo}>Crear Cotización</Text>
 
+  
+    <Text style={styles.TextoNombre}>Cliente: Alfredo Vargas</Text>
+    <Text style={styles.TextoNombre}>Ciudad: Santiago</Text>
+    <Text style={[styles.TextoNombre, styles.Espaciador]}>Dirección: Compañia 1520</Text>
+   
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Rut'/>
+      <TextInput placeholder='Trabajo 1'/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Razón Social'/>
+      <TextInput placeholder='Trabajo 2'/>
     </View>
 
     <View style={styles.inputgroup}>
-      <TextInput placeholder='Dirección'/>
-    </View>
-
-    <View style={styles.inputgroup}>
-      <TextInput placeholder='Comuna'/>
+      <TextInput placeholder='Trabajo 3'/>
     </View>
 
     <View style={styles.inputgroup}> 
       <TextInput placeholder='Región'/>
     </View>
 
-    <View style={styles.inputgroup}>
-      <TextInput placeholder='Telefono'/>
-    </View>
-
-    <TouchableOpacity style={styles.BotonLista} onPress={()=>alert('Empresa creada correctamente')}>
-         <Text style={styles.TextoNombre}>Crear Empresa</Text>
+    <TouchableOpacity style={styles.BotonLista} onPress={()=>alert('Cotización creada correctamente')}>
+         <Text style={styles.TextoBoton}>Crear Cotización</Text>
       </TouchableOpacity>
 
    </ScrollView>
@@ -57,7 +54,8 @@ const styles = StyleSheet.create({
     padding:0,
     marginBottom:20,
     borderBottomWidth:1,
-    borderBottomColor:'#cccccc'
+    borderBottomColor:'#cccccc',
+    fontWeight: 'bold',
   },
   BotonLista: {
     backgroundColor: 'green',
@@ -69,8 +67,17 @@ const styles = StyleSheet.create({
   },
   TextoNombre:{
     fontSize:16,
+    textAlign:'left',
+    color:'black',
+    fontWeight: 'bold',    
+  },
+  TextoBoton:{
+    fontSize:16,
     textAlign:'center',
     color:'white',
     fontWeight: 'bold',    
-  }
+  },
+  Espaciador: {
+    marginBottom: 20,
+  },
 });

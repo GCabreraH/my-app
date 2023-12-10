@@ -12,6 +12,9 @@ import ListProducts from './screens/ListProducts';
 import CreateCompany from './screens/CreateCompany';
 import CompanyList from './screens/ListCompany';
 import ShowCompany from './screens/ShowCompany';
+import CreateQuote from './screens/CreateQuote';
+import ListQuote from './screens/ListQuote';
+import ShowQuote from './screens/ShowQuote';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -25,6 +28,9 @@ export default function App() {
         <Stack.Screen name='CreateCompany' component={CreateCompany}/>
         <Stack.Screen name='CompanyList' component={CompanyList}/>
         <Stack.Screen name='ShowCompany' component={ShowCompany}/>
+        <Stack.Screen name='CreateQuote' component={CreateQuote}/>
+        <Stack.Screen name='ListQuote' component={ListQuote}/>
+        <Stack.Screen name='ShowQuote' component={ShowQuote}/>
         
       </Stack.Navigator>
     )

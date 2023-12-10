@@ -17,11 +17,19 @@ export default function Menu(props) {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.BotonEmpresa} onPress={() => props.navigation.navigate('CreateCompany')}>
-        <Text style={styles.TextoBoton}>Crear nueva Empresa (mock up)</Text>
+        <Text style={styles.TextoBoton}>Crear Nueva Empresa (mock up)</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.BotonEmpresa} onPress={() => props.navigation.navigate('CompanyList')}>
         <Text style={styles.TextoBoton}>Ver Empresas (mock up)</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.BotonCotizacion} onPress={() => props.navigation.navigate('CreateQuote')}>
+        <Text style={styles.TextoBoton}>Crear Nueva cotización (mock up)</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.BotonCotizacion} onPress={() => props.navigation.navigate('ListQuote')}>
+        <Text style={styles.TextoBoton}>Ver Cotizaciones (mock up)</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -36,6 +44,12 @@ const styles = StyleSheet.create({
   },
   BotonEmpresa: {
     backgroundColor: 'cyan',
+    height: 35,
+    borderColor: '#ADD8E6',
+    borderWidth: 1,
+  },
+  BotonCotizacion: {
+    backgroundColor: '#eeb600',
     height: 35,
     borderColor: '#ADD8E6',
     borderWidth: 1,
