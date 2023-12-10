@@ -26,10 +26,6 @@ export default function CreateQuote(props) {
       <TextInput placeholder='Trabajo 3'/>
     </View>
 
-    <View style={styles.inputgroup}> 
-      <TextInput placeholder='Región'/>
-    </View>
-
     <TouchableOpacity style={styles.BotonLista} onPress={()=>alert('Cotización creada correctamente')}>
          <Text style={styles.TextoBoton}>Crear Cotización</Text>
       </TouchableOpacity>
